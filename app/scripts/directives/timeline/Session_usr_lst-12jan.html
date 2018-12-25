@@ -1,0 +1,22 @@
+ <div class="fancy_wrapper clearfix" style="border:solid 2px #333; padding-bottom:20px;">
+         <!--  {{GetSesFancyUserLst}} -->
+          <table>
+          		<tr>
+          			<td>MasterName</td>
+          			<td>DealerName</td>
+          			<td>Client</td>
+          			<td>Amount</td>
+          			<td>Yes/No</td>
+          			<td>Score</td>
+          		</tr>
+          		<tr ng-repeat="userList in GetSesFancyUserLst">
+          			<td>{{userList.MasterName}}</td>
+          			<td>{{userList.ParantName}}</td>
+          			<td>{{userList.userName}}</td>
+          			<td>{{userList.bet_value}}</td>
+          			<td>{{userList.OddValue}}</td>
+          			<td>{{userList.OddsNumber}}</td>
+          		</tr>
+          </table>
+    </div>
+   

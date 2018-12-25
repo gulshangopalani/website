@@ -1,0 +1,83 @@
+<div class="col-sm-12 col-md-12 master-cont">
+    <div class="load-box" ng-show="loading"><img id="mySpinner" src="app/images/loading1.gif" /></div>
+    <div class="msg-alerts alert alert-success" role="alert" ng-show="oddEvenFancyMsg==true"><strong>{{oddEvenFancymessage}}</strong></div>
+    <div class="msg-alerts alert alert-success" role="alert" ng-show="SessionFancyMsg==true"><strong>{{SessionFancyForm}}</strong></div>
+    <div class="msg-alerts alert alert-success" role="alert" ng-show="KhaddalFancyMsg==true"><strong>{{KhaddalFancyForm}}</strong></div>
+    <div class="msg-alerts alert alert-success" role="alert" ng-show="LastDigitFancyMsg==true"><strong>{{LastDigitFancymessage}}</strong></div>
+    <div class="msg-alerts alert alert-success" role="alert" ng-show="UpDownFancyMsg==true"><strong>{{UpDownMessage}}</strong></div>
+    <h5>Filtered {{ filtered.length }} of {{ totalItems}} total Matchs</h5>
+    <div class="col-lg-12 col-md-12 col-sm-12 " style="padding: 0px;" ng-init="search.active=1">
+        <div class="lst_master_top clearfix">
+            <div class="form_row col-lg-12 col-md-12 col-sm-12 col-xs-12 clearfix top_table_form" style="padding: 0px;">
+                <div class="form_box  col-lg-2 col-md-2 col-sm-2 col-xs-12" style="padding: 0px;">
+                    <label>Status</label>
+                    <select ng-model="search.active" ngrequired>
+                        <option value="">All</option>
+                        <option value="1" ng-selected="true">Active</option>
+                        <option value="0">Inactive</option>
+                    </select>
+                </div>
+                <div class="form_box  col-lg-2 col-md-2 col-sm-2 col-xs-12" style="padding: 0px;">
+                    <label>Sport Name</label>
+                    <input type="text" ng-model="search.name" ng-change="filter()" placeholder="Search By Sport name" />
+                </div>
+                <div class="form_box  col-lg-2 col-md-2 col-sm-2 col-xs-12" style="padding: 0px;">
+                    <label>Match Name</label>
+                    <input type="text" ng-model="search.matchName" ng-change="filter()" placeholder="Search By matchName" />
+                </div>
+                <div class="form_box  col-lg-2 col-md-2 col-sm-2 col-xs-12" style="padding: 0px;">
+                    <label>Date</label>
+                    <input type="text" ng-model="search.MstDate" ng-change="filter()" placeholder="Search By Date" />
+                </div>
+                <div class="form_box  col-lg-2 col-md-2 col-sm-2 col-xs-12" style="padding: 0px;">
+                    <label>countryCode</label>
+                    <input type="text" ng-model="search.countryCode" ng-change="filter()" placeholder="Search By countryCode" />
+                </div>
+                <div class="form_box  col-lg-2 col-md-2 col-sm-2 col-xs-12" style="padding: 0px;">
+                    <label>marketCount</label>
+                    <input type="text" ng-model="search.marketCount" ng-change="filter()" placeholder="Search By marketCount" />
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 lst_top_table">
+            </div>
+        </div>
+        <div class="col-lg-12 col-md-12 lst_master">
+            <div class="listdata-table clearfix ">
+                <table class="table table-bordered table-condensed table-responsive" style="background-color: #fff;">
+                    <thead>
+                        <tr>
+                            <th><a ng-click="sort_by('MstCode');"><i class="glyphicon glyphicon-sort"></i></a>SNo</th>
+                            <th><a ng-click="sort_by('matchName');"><i class="glyphicon glyphicon-sort"></i></a>Name</th>
+                            <th><a ng-click="sort_by('MstDate');"><i class="glyphicon glyphicon-sort"></i></a>Date</th>
+                            <th><a ng-click="sort_by('countryCode');"><i class="glyphicon glyphicon-sort"></i></a>C.Code</th>
+                            <th><a ng-click="sort_by('marketCount');"><i class="glyphicon glyphicon-sort"></i></a>MarketCount</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tr ng-repeat="matche in filtered = (match_data | filter:search | orderBy : predicate :reverse) | startFrom:(currentPage-1)*entryLimit | limitTo:entryLimit">
+                        <td data-label="Serial No">{{$index + 1}}</td>
+                        <td data-label="Match">{{matche.matchName}}</td>
+                        <td data-label="MstDate">{{matche.MstDate}}</td>
+                        <td data-label="FromTime">{{matche.countryCode}}</td>
+                        <td data-label="ToTime">{{matche.marketCount}}</td>
+                        <td data-label="Action" class="switch-icon">
+                            <div ng-show="matche.SportID==4 && matche.active ==1">
+                                <button ng-show="$root.HelperAllRights==angular.isUndefinedOrNull || $root.HelperAllRights.AddFancy==1" ui-sref="subadminDashboard.CntrAdminSesssionFancy({matchId: matche.MstCode,sportId:matche.SportID})" id="Button1" class="btn btn-warning btn-sm">Create Session</button>
+                                 <button ng-show="$root.HelperAllRights==angular.isUndefinedOrNull || $root.HelperAllRights.AddFancy==1"  ui-sref="subadminDashboard.EditMultifancycntr({MatchName: matche.matchName,MatchId: matche.MstCode})" class="btn btn-warning btn-sm">Edit Multiple Fancy</button>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-md-12" ng-show="filteredItems == 0">
+                <div class="col-md-12">
+                    <h4>No Match found</h4>
+                </div>
+            </div>
+            <div class="col-md-12" ng-show="filteredItems > 0">
+                <div pagination="" page="currentPage" on-select-page="setPage(page)" boundary-links="true" total-items="filteredItems" items-per-page="entryLimit" class="pagination-small" previous-text="&laquo;" next-text="&raquo;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

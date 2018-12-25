@@ -1,0 +1,50 @@
+<div class="col-sm-12 padding heading">
+    <div class="row">
+        <div class="col-sm-4">
+            <h1>Account Statement</h1>
+        </div>
+            <div class="col-sm-8">
+                <span class="total-green">Total Balance: <span>{{SumOfP_L | number:2}}</span></span>
+                <span class="total-green">Total Credit: <span>{{SumOfProfit | number:2}}</span></span>
+                <span class="total-red">Total Debit: <span>{{SumOfLiability | number:2}}</span></san>
+        </div>
+    </div>
+</div>
+<div class="col-sm-12"></div>    
+   
+       
+	<div class="col-sm-12 col-md-12 padding">
+        <div class="col-lg-12 col-md-12 col-sm-12 ">
+               <!--  {{BetHistory}} -->
+            
+            <div class="lst_master">
+                <div class="resp_table clearfix ">
+                       <table class="table table-bordered my-market"> 
+                        <tr> 
+                                <th>#</th>
+                                <th>Date </th>
+                                <th> User Name</th>
+                                <th>Chips </th>
+                                <th>Narration </th>
+                                <th> Credit</th>
+                                <th> Debit</th>
+                                <th>Balance</th>
+                        </tr>
+                        <tr ng-repeat="data in BetHistory"> 
+                                <td >{{$index+1}} </td>
+                                <td >{{data.Sdate}} </td>
+                                <td> {{data.mstrUserId}}</td>
+                                <td ng-class="[{true: 'GREEN'}[data.Chips >=0], {true: 'RED'}[data.Chips < 0]]">{{data.Chips}} </td>
+                                <td class="text-left">{{data.Narration}} </td>
+                                <td style="color:green!important;"> {{data.Credit}}</td>
+                                <td style="color:red!important;"> {{data.Debit}}</td>
+                                <td> {{GetBalance($index,data.Chips)}}
+
+                                    <input type="text"  id="Bal_{{$index}}" name="indexVal" readonly style="border:none;color:green;font: bold;"></td>
+                        </tr>
+                  </table>                       
+                        
+                </div>
+            </div>
+        </div>
+    </div>

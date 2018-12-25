@@ -1,0 +1,62 @@
+<h1 class="page-heading">Create Helper</h1>
+<div class="col-sm-12 col-md-12 master-cont">
+    <div>
+        <div class="clearfix creat_form">
+            <p ng-show="message" style="text-align: center; color:#FE5454; font-size: 18px; margin-bottom: 15px;">{{message}}</p>
+            <form name="userForm" ng-submit="submitForm()">
+                <p ng-show="checkUserName();" style="text-align: center; color:#FE5454; font-size: 18px; margin-bottom: 15px;">{{errorMsg}}</p>
+                <div class="form_row col-lg-12 col-md-12 col-sm-12 col-xs-12 clearfix">
+                    <div class="form_box  col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <label>Name</label>
+                        <input type="text" name="name" class="input-box" ng-model="name" required="required">
+                    </div>
+                    <div class="form_box  col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <label>User ID</label>
+                        <input type="text" name="username" class="input-box" ng-model="username" ng-change="checkUserName()" required="required">
+                    </div>
+                    <div class="form_box  col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                        <label>Password</label>
+                        <input type="password" name="password" class="input-box" ng-model="password" required="required">
+                    </div>
+                    <div class="form_box  col-lg-2 col-md-2 col-sm-2 col-xs-12" style="text-align:left;">
+                        <button type="submit" class="btn btn-primary" style="margin-top:21px;">Submit</button>
+                    </div>
+                </div>
+            </form>
+            <div class="lst_master_top clearfix">
+                <div class="form_row col-lg-12 col-md-12 col-sm-12 col-xs-12 clearfix top_table_form" style="padding: 0px;">
+                    <div class="form_box  col-lg-4 col-md-4 col-sm-4 col-xs-12" style="padding: 0px;">
+                        <div class="file-icons">
+                            <a href=""><img src="app/images/file1.png" /></a>
+                            <a href=""><img src="app/images/file2.png" /></a>
+                            <a href=""><img src="app/images/file3.png" /></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="listdata-table">
+            <table class="table table-bordered table-condensed table-responsive match_td" border="1" bordercolor="#ccc" cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>S No.</th>
+                        <th>Name</th>
+                        <th>User Name</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="item in subadmin ">
+                        <td data-label="S No.">{{$index+1}}{{item.usecode}}</td>
+                        <td data-label="Name">{{item.mstrname}}</td>
+                        <td data-label="User Name">{{item.usename}}</td>
+                        <td data-label="Action">
+                            <a href="" ui-sref="dashboard.SubAdminAssignCntr({userId: item.usecode,userName: item.usename})">Assign Master</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+</div>

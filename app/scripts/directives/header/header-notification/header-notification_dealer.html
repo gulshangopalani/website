@@ -1,0 +1,37 @@
+
+<div class="row padding">
+
+    <div class="col-sm-6 col-xs-6 text-right right-notification header-menu">
+        <md-menu md-position-mode="target-right target" md-offset="0 58">
+            <a ng-click="$mdOpenMenu()">
+                <i class="fa fa-info-circle"></i>&nbsp;Account
+            </a>
+            <md-menu-content class="user-links top-menu-cont">
+                <md-button><span class="drp-txt user-balance">Balance: {{$root.Balance}}</span></md-button>
+                <md-button ng-click="displayUserInfo()"><span class="drp-txt user-liability">Liability: {{$root.Liability}}</span></md-button>
+            </md-menu-content>
+        </md-menu>
+
+
+        <md-menu md-position-mode="target-right target" md-offset="0 58">
+            <a ng-click="$mdOpenMenu()">
+                <i class="fa fa-cog"></i>
+            </a>
+            <md-menu-content class="user-links top-menu-cont">
+                <md-button ui-sref="dealerDashboard.changePasswordUser"><span class="drp-txt">Change Password</span></md-button>
+                <md-button ui-sref="dealerDashboard.Get_bethistryCntr"><span class="drp-txt">Bet History</span></md-button>
+                <md-button ui-sref="dealerDashboard.Profitlosscntr"><span class="drp-txt">Profit & Loss</span></md-button>
+                <md-divider class="divider"></md-divider>
+                <md-button class="logout home-page-logout" ng-click="logout();">
+                    <span class="drp-txt">Logout</span>
+                </md-button>
+            </md-menu-content>
+        </md-menu>
+    </div>
+
+</div>
+
+     
+
+
+

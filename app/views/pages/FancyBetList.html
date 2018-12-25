@@ -1,0 +1,58 @@
+<!-- <span style="color:white">{{UserData}}</span> -->
+<div class="col-sm-12 col-md-12 master-cont">
+   
+    <div class="col-lg-12 col-md-12 col-sm-12 " style=" padding:0px;">
+   <!--  {{UserData}} -->
+   		<div class="actionBtns">
+		 	<button type="button" ng-click="deleteAll();"><i class="fa fa-trash"></i> Delete All</button>
+    		<button type="button" ng-click="GetUserData()"><i class="fa fa-refresh"></i> Refresh</button>
+   		</div>
+       
+        <div class="col-lg-12 col-md-12 lst_master">
+            <div class="resp_table clearfix ">
+                <table class="table table-bordered table-condensed table-responsive bettable" style="background-color:#fff;color: black;">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" id="selectMatchedBet" ng-model="selectedAll" ng-click="selectAll(selectedAll)" /> </th>
+                            <th>Serial No</th>
+                            <th></a>Master</th>
+                            <th>Dealer</th>
+                            <th>User</th>
+                            <th>selectionName</th>
+                            <th>Odds</th>
+                            <th>Stack</th>
+                            <th>isBack</th>
+                            <th>P_L</th>
+                            <th>MstDate</th>                            
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tr ng-repeat="Bets in UserData" ng-class="{'back-head': Bets.isBack == '0' , 'lay-head': Bets.isBack == '1'} ">
+                        <td><input type="checkbox" ng-model="Bets.Selected" ng-click="checkIfAllSelected()" /></td>
+                        <td data-label="Serial No">{{$index + 1}}</td>
+                        <td data-label="MasterName">{{Bets.MasterName}}</td>
+                        <td data-label="Dealer">{{Bets.ParantName}}</td>
+                        <td data-label="userName">{{Bets.userName}}</td>
+                        <td data-label="selectionName">{{Bets.fancyName}}</td>
+                        <td data-label="Odds">{{Bets.OddsNumber}}</td>
+                        <td data-label="Stack">{{Bets.bet_value}}</td>
+                        <td data-label="isBack">{{Bets.isBack==0?'Back':'Lay'}}</td>
+                        <td data-label="Fancy Date">{{Bets.bet_value}}</td>
+                        <td data-label="Fancy Date">{{Bets.dateTime}}</td>
+                                               
+                        <td data-label="Action">
+                            <a ng-click="DeleteBets(Bets.bet_id,Bets.userId,2)" class="del-btn" style="display:inline-block; cursor:pointer;">
+                                <i class="glyphicon glyphicon-remove" style="color:RED;"></i>
+                            </a>
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+
+            
+        </div>
+    </div>
+</div>
+
+

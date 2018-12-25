@@ -1,0 +1,26 @@
+
+<div>
+
+	<h3>Fancy List</h3>	
+	<table class="table table-bordered">
+   	    <thead>
+	        <tr>
+	            <th>#</th>
+	            <th>Id</th>
+	            <th>Fancy Name</th>
+	            <th>Action</th>
+	        </tr>
+	    </thead>
+	    <tbody>
+	        <tr ng-repeat="fancy in apiFancy" ng-if="fancy.btype=='LINE'">
+				<td>{{$index}}</td>
+				<td>{{fancy.id}}</td>
+				<td>{{fancy.name}}</td>				
+				<td ui-sref-active="active">
+	                <input type="checkbox" name="sp" ng-model="fancy.selected">
+	                <button type="button" ng-click="saveFancy(fancy)">Save</button>
+				</td>
+	        </tr>        
+	    </tbody>
+	</table>
+</div>

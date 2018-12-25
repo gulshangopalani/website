@@ -1,0 +1,48 @@
+<div class="col-sm-12 BetHistory padding">
+  <div class=" row heading">
+    <div class="col-sm-10 col-xs-10">
+        <h1>Bet History</h1>
+      </div>
+      <div class="col-sm-2 col-xs-2">
+        <div class="file-icons">
+            <a ng-click="onBtExport()"><img src="app/images/file2.png" /></a>
+        </div>
+      </div>
+  </div>
+        <!-- {{BetHistory}} -->
+        <div class="table-overflow">
+        <table class="table table-bordered table-striped table-fixed dealerclient">  
+         <thead>
+            <tr class="row-name">
+               <th>SNo</th>
+               <th>Description</th>
+               <th>Selection Name</th>
+               <th>Type</th>
+               <th>Odds</th>
+               <th>Stack</th>
+               <th>Date</th>
+               <th>P | L</th>
+               <th>Profit</th>
+               <th>Liability</th>
+               <th>Status</th>
+            </tr>
+         </thead>   
+         <tbody>
+            <tr class="row-content" ng-repeat="GetbetData in BetHistory" >
+               <td>{{GetbetData.SrNo}}</td>               
+               <td class="text-left">{{GetbetData.Description}}</td>
+               <td>{{GetbetData.selectionName}}</td>
+               <td><span class="badge " ng-class="{'badge-danger': GetbetData.Type == 'Lay' ,'badge-info': GetbetData.Type == 'Back' } ">{{GetbetData.Type}}</span></td>
+               <td>{{GetbetData.Odds}}</td>
+               <td>{{GetbetData.Stack}}</td>
+               <td>{{GetbetData.MstDate}}</td>
+               <td>{{GetbetData.P_L}}</td>
+               <td>{{GetbetData.Profit}}</td>
+               <td>{{GetbetData.Liability}}</td>
+               <td>{{GetbetData.STATUS}}</td>
+            </tr>
+         </tbody>
+        </table>
+      </div>
+</div>
+  

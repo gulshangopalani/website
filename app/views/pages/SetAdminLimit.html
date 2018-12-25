@@ -1,0 +1,141 @@
+<h1 class="page-heading">Configuration</h1>
+
+  <div class="col-sm-12 col-md-12 master-cont">
+      <!-- <h2 style="text-align: center; font-size: 28px; margin-bottom: 15px;">SET ADMIN LIMIT</h2> -->
+        <div class=" creat_form">
+            <div class="clearfix">
+             
+              <!--   {{message}} -->
+                <form name="userForm" ng-submit="submitForm()">
+                    <h2 class="inner-head-form">Set Admin Limit</h2>
+                      <div class="form_row col-lg-12 col-md-12 col-sm-12 col-xs-12 clearfix">
+                          <div class="form_box" style="float:left;">
+                            <label style="display:inline-block; margin:0;">Set Limit <!-- {{adminLimit[0]}} --></label>
+                          </div>
+                          <div class="form_box  col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                              
+                              <input type="number" name="adminLimit" class="input-box" ng-model="adminLimit1" ng-value="adminLimit[0].adminLImit" required="required" >
+                              <input type="hidden" name="id" ng-model="limitId1" ng-value="adminLimit[0].Id" >
+                          </div>
+                          <div class="form_box  col-lg-3 col-md-3 col-sm-6 col-xs-6" style="text-align:left;">                             
+                              <button type="button" class="btn btn-primary" ng-click="saveData(adminLimit1,adminLimit[0].Id)" style="margin-top:-1px; padding:2px 10px;">Submit</button>
+                          </div>
+                      </div>
+
+                </form>
+                
+            </div>
+       
+            <div class="clearfix">
+              <h2 class="inner-head-form">Going InPlay Limit</h2>
+              <!--   {{message}} -->
+                <form name="userForm" ng-submit="submitForm()">
+
+                      <div class="form_row col-lg-12 col-md-12 col-sm-12 col-xs-12 clearfix">
+                          <div class="form_box" style="float:left;">
+                            <label style="display:inline-block; margin:0;">Going InPlay Limit test</label>
+                          </div>
+                          <div class="form_box  col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                              <input type="number" name="adminLimit" class="input-box" ng-model="gngSetLimit" required="required" >
+                          </div>
+                          <div class="form_box  col-lg-3 col-md-3 col-sm-6 col-xs-6" style="text-align:left;"> 
+                              <button type="button" class="btn btn-primary" ng-click="UpdateGngInPlayLimitLimit(gngSetLimit)" style="margin-top:-1px; padding:2px 10px;">Set limit</button>
+                          </div>
+                      </div>
+
+                </form>
+                
+            </div>
+            <div class="clearfix">
+              <h2 class="inner-head-form">Display Message In Header</h2>
+              <!--   {{message}} -->
+                <form name="userForm" >
+
+                      <div class="form_row col-lg-12 col-md-12 col-sm-12 col-xs-12 clearfix">
+                          <div class="form_box" style="float:left;">
+                            <label style="display:inline-block; margin:0;">Set Message</label>
+                          </div>
+                          <div class="form_box  col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                              <textarea ng-model="setMessage"></textarea>
+                          </div>
+                          <div class="form_box  col-lg-3 col-md-3 col-sm-6 col-xs-6" style="text-align:left;"> 
+                              <button type="button" class="btn btn-primary" ng-click="setHeaderMsg(setMessage)" style="margin-top:-1px; padding:2px 10px;">Set Message</button>
+                             
+                          </div>
+                      </div>
+
+                </form>
+            </div>
+            <div class="clearfix">
+              <h2 class="inner-head-form">Set user Match detection POINT</h2>
+              <!--   {{message}} -->
+                <form name="userForm" >
+
+                      <div class="form_row col-lg-12 col-md-12 col-sm-12 col-xs-12 clearfix">
+                          <div class="form_box" style="float:left;">
+                            <label style="display:inline-block; margin:0;">Set Point</label>
+                          </div>
+                          <div class="form_box  col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                           
+                              <input type="number" name="amountDetected" ng-model="PointValue" required="req">
+                            
+                          </div>
+                          <div class="form_box  col-lg-3 col-md-3 col-sm-6 col-xs-6" style="text-align:left;"> 
+                              <button type="button" class="btn btn-primary" ng-click="UpdatePoint(PointValue)" style="margin-top:-1px; padding:2px 10px;">Set Point</button>
+                             
+                          </div>
+                      </div>
+
+                </form>
+            </div>
+            <div class="clearfix">
+              <h2 class="inner-head-form">Set Bet delay of All users</h2>
+              <!--   {{message}} -->
+                <form name="userForm" >
+
+                      <div class="form_row col-lg-12 col-md-12 col-sm-12 col-xs-12 clearfix">
+                          <div class="form_box" style="float:left;">
+                            <label style="display:inline-block; margin:0;">Set Delay(In Second)</label>
+                          </div>
+                          <div class="form_box  col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                           
+                              <input type="number" name="betDelay" ng-model="betDelay" required="req">
+                            
+                          </div>
+                          <div class="form_box  col-lg-3 col-md-3 col-sm-6 col-xs-6" style="text-align:left;"> 
+                              <button type="button" class="btn btn-primary" ng-click="UpdateBetDelay(betDelay)" style="margin-top:-1px; padding:2px 10px;">SetBetDelay</button>
+                             
+                          </div>
+                      </div>
+
+                </form>
+            </div>
+            <div class="clearfix">
+              <h2 class="inner-head-form">Set Notification of All users</h2>
+              <!--   {{message}} -->
+                <form name="userForm" >
+
+                      <div class="form_row col-lg-12 col-md-12 col-sm-12 col-xs-12 clearfix">
+                          <div class="form_box" style="float:left;">
+                            <label style="display:inline-block; margin:0;">Set Notification</label>
+                          </div>
+                          <div class="form_box  col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                           
+                              <!-- <input type="text" name="notification" ng-model="notification" required="req"> -->
+                              <textarea ng-model="notification"></textarea>
+                            
+                          </div>
+                          <div class="form_box  col-lg-3 col-md-3 col-sm-6 col-xs-6" style="text-align:left;"> 
+                              <button type="button" class="btn btn-primary" ng-click="UpdateNotification(notification)" style="margin-top:-1px; padding:2px 10px;">Update Notification</button>
+                             
+                          </div>
+                      </div>
+
+                </form>
+            </div>
+        </div>
+  </div>
+
+
+
+  

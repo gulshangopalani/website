@@ -1,0 +1,47 @@
+<div class="padding">
+
+
+    <div class="col-sm-6 col-xs-6 text-right right-notification header-menu">
+
+        <md-menu md-position-mode="target-right target" md-offset="0 58">
+            <a ng-click="$mdOpenMenu()">
+                <i class="fa fa-info-circle"></i>&nbsp;Account
+            </a>
+            <md-menu-content class="user-links top-menu-cont">
+                <md-button><span class="drp-txt user-balance">Balance: {{$root.Balance}}</span></md-button>
+                <md-button ng-click="displayUserInfo()"><span class="drp-txt user-liability">Liability: {{$root.Liability}}</span></md-button>
+            </md-menu-content>
+        </md-menu>
+
+        <md-menu md-position-mode="target-right target" md-offset="0 58">
+              <a ng-click="$mdOpenMenu()"> 
+                  <i class="fa fa-cog"></i>
+              </a>
+                <md-menu-content class="user-links top-menu-cont">
+                    <md-button ui-sref="dashboard.anctStatementCntr"><span class="drp-txt">Account Statement</span></md-button>
+                    <md-button ui-sref="dashboard.PointHistory"><span class="drp-txt">Point History</span></md-button>
+                    <md-button ui-sref="dashboard.Home"><span class="drp-txt">My Market</span></md-button>
+                    <md-button ui-sref="dashboard.Profitlosscntr"><span class="drp-txt">Profit & Loss</span></md-button>
+                    <md-button ui-sref="dashboard.changePasswordUser"><span class="drp-txt">Change Pwd</span></md-button>
+                    <md-button ui-sref="dashboard.Onlineusersctrl"><span class="drp-txt">Online Users</span></md-button>
+                    <md-button ui-sref="dashboard.Get_bethistryCntr"><span class="drp-txt">Bet History</span></md-button>                           
+                    <md-button ui-sref="dashboard.Userlist"><span class="drp-txt">User List</span></md-button>                           
+                    <md-button ui-sref="dashboard.Get_actMtchUsersCntr"><span class="drp-txt">Active Users</span></md-button>  
+                    <md-button ui-sref="dashboard.alleMatchLst"><span class="drp-txt">AllSports</span></md-button>  
+                    <span ng-show="$root.HelperAllRights==angular.isUndefinedOrNull || $root.HelperAllRights.ChipHistory==1">
+                    <md-button ui-sref="dashboard.Chiphistorycntr"><span class="drp-txt">Balance History</span></md-button>
+                    </span>  
+
+                    <span ng-show="$root.HelperAllRights==angular.isUndefinedOrNull || $root.HelperAllRights.ChipHistory==1">
+                    <md-button ui-sref="dashboard.newChipHistory" ><span class="drp-txt">Balance Summary</span></md-button>
+                    </span>                        
+                    <md-button ng-click="showSetPassword();" ><span class="drp-txt">Set Password</span></md-button>
+                    <md-button ng-click="logout();"><span class="drp-txt">Logout</span></md-button>
+
+                    
+
+                </md-menu-content>
+        </md-menu>
+    </div>
+
+    </div>
